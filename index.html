@@ -3,33 +3,58 @@
 <head>
   <meta charset='UTF-8'>
   <title></title>
+
   <style>
-    .activeHeading {
-      color: firebrick;
-      font-size: 2em;
-      cursor: pointer;
+    .hideElement {
+      display: none;
     }
-    .nonActiveHeading {
-      color: cornflowerblue;
-      font-size: 4em;
-      cursor: pointer;
+
+    .showElement {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div id="mainHeading" class="activeHeading">Hi there</div>
+  <div class="widget showElement">
+    <div class="mainHeading">
+      <h1>Hi there</h1>
+    </div>
+
+    <div class="subHeading">
+      My Amazing subheading...
+    </div>
+
+  </div>
+  <button onclick="contentToggle()">Toggle Content</button>
 </body>
 <script>
-  const heading = document.getElementById('mainHeading');
+  // const mainHeading = document.querySelector('.mainHeading');
+  // const headings = document.querySelectorAll('div');
+  const widget = document.querySelector('.widget');
 
-  heading.onclick = () => {
-    if (heading.classList.contains('activeHeading')) {
-      heading.classList.remove('activeHeading')
-      heading.classList.add('nonActiveHeading')
-    }else if (heading.classList.contains('nonActiveHeading')) {
-      heading.classList.remove('nonActiveHeading')
-      heading.classList.add('activeHeading')
+  function contentToggle() {
+    if (widget.classList.contains('showElement')) {
+      widget.classList.remove('showElement');
+      widget.classList.add('hideElement');
+      console.log("clicked");
+    } else {
+      widget.classList.remove('hideElement');
+      widget.classList.add('showElement');
+      console.log("clicked");
     }
   }
+
+  // function contentToggle() {
+  //   console.log(headings);
+  //   headings.forEach((heading) => {
+  //     if (heading.classList.contains('showElement')) {
+  //       heading.classList.remove('showElement');
+  //       heading.classList.add('hideElement');
+  //     } else {
+  //       heading.classList.remove('hideElement');
+  //       heading.classList.add('showElement');
+  //     }
+  //   });
+  // }
 </script>
 </html>
